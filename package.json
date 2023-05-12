@@ -1,0 +1,11 @@
+{
+  "name": "wsum8543-tracker",
+  "version": "1.0.0",
+  "description": "project for deco2017 assignment 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cecilia Sum",
+  "license": "ISC"
+}
