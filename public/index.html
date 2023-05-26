@@ -1,12 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Task Tracker</title>
 </head>
+
 <body>
-    
+    <header>
+        <h1>ANIMATED MOVIE TRACKER</h1>
+    </header>
+    <div id="popup" class="hidden">
+        <form id="mForm">
+            <!-- movie title -->
+            <div class="form-row">
+                <label for="mTitle">title</label>
+                <input name="mTitle" id="mTitle">
+            </div>
+
+            <!-- duration -->
+            <div class="form-row">
+                <label for="mDuration">duration</label>
+                <input name="mDuration" id="mDuration">
+            </div>
+
+            <!-- genre selection -->
+            <div class="form-row">
+                <label for="mGenre">genre</label>
+                <select name="mGenre" id="mGenre" required>
+                    <option value="">select</option>
+                    <option value="action">action</option>
+                    <option value="comedy">comedy</option>
+                    <option value="crime">crime</option>
+                    <option value="drama">drama</option>
+                    <option value="experimental">experimental</option>
+                    <option value="fantasy">fantasy</option>
+                    <option value="historical">historical</option>
+                    <option value="horror">horror</option>
+                    <option value="romance">romance</option>
+                    <option value="scifi">sci-fi</option>
+                    <option value="thriller">thriller</option>
+                </select>
+            </div>
+
+            <!-- complete ? yes/no radio select -->
+            <div class="form-row">
+                <label for="mWatched">watched?</label>
+                <input type="radio" id="mWatched" value="yWatched">
+                <label for="yWatched">yes</label>
+                <input type="radio" id="mWatched" value="nWatched">
+                <label for="nWatched">no</label>
+            </div>
+
+            <!-- emotion -->
+            <div class="form-row">
+                <label for="mEmotion">emotion</label>
+                <select name="mEmotion" id="mEmotion">
+                    <option value="">select</option>
+                    <option value="joy">joy</option>
+                    <option value="sadness">sadness</option>
+                    <option value="fear">fear</option>
+                    <option value="disgust">disgust</option>
+                    <option value="anger">anger</option>
+                </select>
+            </div>
+
+            <!-- user note -->
+            <div class="form-row">
+                <label for="mNotes">notes</label>
+                <input name="mNotes" id="mNotes">
+            </div>
+
+            <!-- submit button -->
+            <div class="form-row">
+                <input type="submit">
+            </div>
+        </form>
+        <button id="hideElement">Hide Element</button>
+    </div>
+
+    <img src="img/amia.png" id="showElement">
+
+    <img src="img/amia.png" id="imgHero">
+
+    <h2>Tasks</h2>
+    <ul id="movielist"></ul>
+    <script src="script.js"></script>
 </body>
+
 </html>
