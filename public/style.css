@@ -2,6 +2,24 @@
   display: none;
 }
 
+.notepop {
+  text-decoration: line-through;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
 #imgHero {
   width: 100px;
+}
+
+input, textarea {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ccc; /* You can adjust the color and thickness of the outline */
+}
+
+#title {
+  background-color: red;
 }

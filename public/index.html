@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Task Tracker</title>
+    <title>animated movie tracker</title>
 </head>
 
 <body>
@@ -17,8 +17,8 @@
         <form id="mForm">
             <!-- movie title -->
             <div class="form-row">
-                <label for="mTitle">title</label>
-                <input name="mTitle" id="mTitle">
+                <!--<label for="mTitle">title</label>-->
+                <input name="mTitle" id="mTitle" placeholder="ENTER MOVIE TITLE HERE . . .">
             </div>
 
             <!-- duration -->
@@ -49,9 +49,9 @@
             <!-- complete ? yes/no radio select -->
             <div class="form-row">
                 <label for="mWatched">watched?</label>
-                <input type="radio" id="mWatched" value="yWatched">
+                <input type="radio" id="mWatched" value="yWatched" name="complete">
                 <label for="yWatched">yes</label>
-                <input type="radio" id="mWatched" value="nWatched">
+                <input type="radio" id="mWatched" value="nWatched" name="complete">
                 <label for="nWatched">no</label>
             </div>
 
@@ -71,22 +71,22 @@
             <!-- user note -->
             <div class="form-row">
                 <label for="mNotes">notes</label>
-                <input name="mNotes" id="mNotes">
+                <textarea name="mNotes" id="mNotes"></textarea>
             </div>
 
             <!-- submit button -->
             <div class="form-row">
-                <input type="submit">
+                <input type="submit" id="hideElement">
             </div>
         </form>
-        <button id="hideElement">Hide Element</button>
     </div>
+
+    <div id="notepopup">hi</div>
 
     <img src="img/amia.png" id="showElement">
 
     <img src="img/amia.png" id="imgHero">
 
-    <h2>Tasks</h2>
     <ul id="movielist"></ul>
     <script src="script.js"></script>
 </body>
