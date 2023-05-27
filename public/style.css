@@ -2,22 +2,44 @@
   display: none;
 }
 
-.notepop {
-  text-decoration: line-through;
-}
-
-.done {
-  text-decoration: line-through;
+#notepopup {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  overflow: auto;
+  background-color: purple;
 }
 
 #imgHero {
   width: 100px;
 }
 
-input, textarea {
+input,
+textarea {
   border: none;
   outline: none;
-  border-bottom: 1px solid #ccc; /* You can adjust the color and thickness of the outline */
+  border-bottom: 1px solid #ccc;
+  /* You can adjust the color and thickness of the outline */
+}
+
+p {
+  text-transform: lowercase;
+}
+
+.dot {
+  padding: 10px;
+}
+
+#y {
+  background-color: green;
+}
+
+#n {
+  background-color: red;
 }
 
 #title {
