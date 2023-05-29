@@ -1,19 +1,16 @@
+// Create an array called 'movieList'
+var movieList = [];
+
 // form show + hide
 const popup = document.getElementById("popup");
-const showButton = document.getElementById("showElement");
+const showButton = document.getElementById("openForm");
 const hideButton = document.getElementById("hideElement");
-
-function showElement() {
-  popup.classList.remove("hidden");
-}
-
-function hideElement() {
-  popup.classList.add("hidden");
-}
+const notepopup = document.getElementById('notepopup');
 
 // Attach event listeners
-showButton.addEventListener("click", showElement);
-hideButton.addEventListener("click", hideElement);
+showButton.addEventListener("click", function () {
+  popup.showModal();
+});
 
 // Setting up variables for our HTML elements using DOM selection
 const form = document.getElementById("mForm");
@@ -21,8 +18,6 @@ const movielist = document.getElementById("movielist");
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-
-  console.log(form.elements.mTitle.value)
 
   addMovie(
     form.elements.mTitle.value,
@@ -32,9 +27,9 @@ form.addEventListener("submit", function (event) {
     form.elements.mEmotion.value,
     form.elements.mNotes.value,
   )
+
   console.log(movieList)
 })
-
 
 function showMovies(movie) {
   let item = document.createElement("li");
@@ -42,18 +37,10 @@ function showMovies(movie) {
 
   // object values: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
   if (Object.values(movie).includes("y")) {
-    console.log("watched");
-    item.innerHTML = `<span class="dot" id="y"></span><p id="title"><strong>${movie.title}</strong><br>${movie.duration}</p>`;
+    item.innerHTML = `<div class="item"><span class="dot" id="y"></span><p id="title"><strong>${movie.title}</strong></p><br></div`;
   } else {
-    console.log("not watched");
-    item.innerHTML = `<span class="dot" id="n"></span><p id="title"><strong>${movie.title}</strong><br>${movie.duration}</p>`;
-  }
-
-  // item list popup: https://stackoverflow.com/questions/61169448/click-on-the-list-item-it-toggles-the-line-through-sytle-class-on-and-off
-  item.addEventListener("click", function () {
-    notepopup.classList.toggle("hidden");
-    document.getElementById("notepopup").innerHTML = `<em><h3>NOTE</h3></br><p>added on ${movie.date}</em><br>${movie.notes}</p>`;
-  })
+    item.innerHTML = `<div class="item"><span class="dot" id="n"></span><p id="title"><strong>${movie.title}</strong></p><br></div>`;
+  } 
 
   movielist.appendChild(item);
 
@@ -61,13 +48,16 @@ function showMovies(movie) {
   form.reset();
 
   // Setup delete button DOM elements
-  let delButton = document.createElement("button");
-  let delButtonText = document.createTextNode("Delete");
-  delButton.appendChild(delButtonText);
+  let delButton = document.createElement('img');
+  delButton.setAttribute('id','delBtn')
+  delButton.src = 'https://i.imgur.com/kkd7kac.png';
+  /*let delButton = document.createElement("button");
+  let delButtonText = document.createTextNode("Delete");*/
+  //delButton.appendChild(delButtonText);
   item.appendChild(delButton); // Adds a delete button to every movie
 
   // Listen for when the delete button is clicked
-  delButton.addEventListener("click", function (event) {
+  delButton.addEventListener("click", function () {
 
     movieList.forEach(function (movieArrayElement, movieArrayIndex) {
       if (movieArrayElement.id == item.getAttribute('data-id')) {
@@ -75,22 +65,17 @@ function showMovies(movie) {
       }
     })
 
-    // Make sure the deletion worked by logging out the whole array
-    console.log(movieList)
-
     item.remove(); // Remove the movie item from the page when button clicked
 
   })
 
+  // item list popup: https://stackoverflow.com/questions/61169448/click-on-the-list-item-it-toggles-the-line-through-sytle-class-on-and-off
   item.addEventListener("click", function () {
-    item.classList.remove("hidden")
+    notepopup.showModal();
+    document.getElementById("notepopup").innerHTML = `<div id="noscroll"><em><h3>NOTE</h3><p ="date">added on ${movie.date}</p><p id="duration">length ${movie.duration}</p></em></div><br><p id="notes">${movie.notes}</p>`;
   })
 
 }
-
-
-// Create an array called 'movieList'
-var movieList = [];
 
 // Create a function called 'addMovie'
 // Paste your object definition from above in the function
@@ -118,8 +103,9 @@ function addMovie(title, duration, genre, status, emotion, notes) {
 
 // Call the function with test values for the input paramaters
 //////// REMOVE AT THE END.
-addMovie("a silent voice", "2:25", "romance", "y", "sadness", "made me cry 10/10");
-addMovie("a silent voice", "2:25", "romance", "n", "sadness", "made me cry 10/10");
+addMovie("a silent voice", "2:25", "romance", "y", "sadness", "made me cry 10/10 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+addMovie("evangelion", "2:25", "scifi", "n", "sadness", "made me cry 10/10");
+
 
 // Log the array to the console.
 console.log(movieList);

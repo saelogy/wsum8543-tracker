@@ -1,3 +1,45 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ececec;
+  line-height: 200%;
+  color: #181818;
+}
+
+dialog {
+  border-radius: 5%;
+  border-style: none;
+  padding: 50;
+}
+
+li {
+  list-style-type: none
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+  border-bottom: 1 solid #ccc;
+}
+
+h1 {
+  font-size: 25;
+  font-style: italic;
+  font-weight: bolder;
+  margin-left: 40;
+}
+
+header {
+  background-color: white;
+  padding: 10;
+  border-radius: 30 30 0 0;
+  margin: 50 213 0 240;
+}
+
+p {
+  text-transform: lowercase;
+}
+
 .hidden {
   display: none;
 }
@@ -5,43 +47,100 @@
 #notepopup {
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100px;
-  height: 100px;
+  width: 500;
+  height: 350;
   overflow: auto;
-  background-color: purple;
 }
 
 #imgHero {
-  width: 100px;
-}
-
-input,
-textarea {
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #ccc;
-  /* You can adjust the color and thickness of the outline */
-}
-
-p {
-  text-transform: lowercase;
+  width: 1410;
+  height: auto;
+  border-radius: 0 0 30 30;
+  margin-left: 240;
 }
 
 .dot {
-  padding: 10px;
+  width: 23;
+  height: 23;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 50;
+  margin-top: 20;
 }
 
 #y {
-  background-color: green;
+  background-color: #55c247;
 }
 
 #n {
-  background-color: red;
+  background-color: #ff0000;
 }
 
 #title {
-  background-color: red;
+  margin-left: 100;
+  margin-top: 15;
+  text-transform: uppercase;
+  font-size: 20;
+  font-weight: bold;
+}
+
+.item {
+  background-color: white;
+  border-radius: 20;
+  padding-top: 20;
+  margin: 0 210 30 200;
+  height: 80;
+}
+
+h3 {
+  margin: 0 0 -20 0;
+}
+
+#duration {
+  position: absolute;
+  margin: -20 0 0 0;
+}
+
+#notes {
+  margin: 70 0 -20 0;
+  height: 160;
+  overflow: auto;
+}
+
+#openForm {
+  position: absolute;
+  height: 50;
+  margin: -65 0 0 -110;
+}
+
+#delBtn {
+  margin-left: 1500;
+  position: absolute;
+  margin-top: -105;
+  width: 50;
+}
+
+#noscroll {
+  position: fixed;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2f7e6c;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2f7e6c;
 }
