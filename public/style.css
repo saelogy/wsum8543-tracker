@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   background-color: #ececec;
@@ -53,7 +57,7 @@ p {
 }
 
 #imgHero {
-  width: 1410;
+  width: 1400;
   height: auto;
   border-radius: 0 0 30 30;
   margin-left: 240;
@@ -121,26 +125,104 @@ h3 {
   width: 50;
 }
 
+#imgEmotion {
+  z-index: 1;
+  width: 50;
+  position: absolute;
+  margin: -105 0 0 1400;
+}
+
+#imgGenre {
+  z-index: 1;
+  width: 50;
+  position: absolute;
+  margin: -105 0 0 1300;
+}
+
 #noscroll {
   position: fixed;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10;
-}
+/* scrollbar */
+::-webkit-scrollbar {width: 10;}
+::-webkit-scrollbar-track {background: #f1f1f1;}
+::-webkit-scrollbar-thumb {background: #2f7e6c;}
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+@media screen and (max-width: 600px) {
+  html {
+    overflow-x: hidden;
+  }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #2f7e6c;
-}
+  dialog {
+    border-radius: 5%;
+    border-style: none;
+    padding: 50;
+  }
+  
+  input,
+  textarea {
+    border: none;
+    outline: none;
+    border-bottom: 1 solid #ccc;
+  }
+  
+  header {
+    padding: 1;
+    margin: 50 0 0 0;
+  }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #2f7e6c;
+  h1 {
+    font-size: 20;
+  }
+  
+  #notepopup {
+    width: 350;
+    height: 350;
+  }
+  
+  #imgHero {
+    width: 537;
+    margin-left: 0;
+  }
+  
+  .dot {
+    margin-left: 30;
+    margin-top: 20;
+  }
+  
+  #title {
+    margin-left: 70;
+  }
+  
+  .item {
+    margin: 0 0 30 -35;
+  }
+  
+  h3 {
+    margin: 0 0 -20 0;
+  }
+  
+  #openForm {
+    position: absolute;
+    height: 50;
+    margin: 750 0 0 -290;
+  }
+  
+  #delBtn {
+    margin: -100 0 0 430;
+    width: 40;
+  }
+  
+  #imgEmotion {
+    width: 40;
+    margin: -100 0 0 360;
+  }
+  
+  #imgGenre {
+    width: 40;
+    margin: -100 0 0 290;
+  }
+  
+  /* scrollbar */
+  ::-webkit-scrollbar {width: 10;}
 }

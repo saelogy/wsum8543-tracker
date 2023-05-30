@@ -37,10 +37,57 @@ function showMovies(movie) {
 
   // object values: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
   if (Object.values(movie).includes("y")) {
-    item.innerHTML = `<div class="item"><span class="dot" id="y"></span><p id="title"><strong>${movie.title}</strong></p><br></div`;
+    item.innerHTML = `<div class="item"><span class="dot" id="y"></span><p id="title"><strong>${movie.title}</strong></p><br></div>`;
   } else {
     item.innerHTML = `<div class="item"><span class="dot" id="n"></span><p id="title"><strong>${movie.title}</strong></p><br></div>`;
   } 
+
+  // check for emotional rating +display as image
+  let imgEmotion = document.createElement('img');
+  imgEmotion.setAttribute('id','imgEmotion');
+  if (Object.values(movie).includes("joy")){
+    // img cred. https://www.flaticon.com/authors/freepik
+    imgEmotion.src='https://i.imgur.com/KvWgmWD.png';
+  } else if (Object.values(movie).includes("sadness")){
+    // img cred. https://www.flaticon.com/authors/freepik
+    imgEmotion.src='https://i.imgur.com/iD7c0oh.png';
+  } else if (Object.values(movie).includes("fear")){
+    // img cred. 
+    imgEmotion.src='https://i.imgur.com/rVoazbt.png';
+  } else if (Object.values(movie).includes("disgust")){
+    // img cred. https://www.flaticon.com/authors/those-icons
+    imgEmotion.src='https://i.imgur.com/oL0BxtZ.png';
+  } else if (Object.values(movie).includes("anger")){
+    // img cred. https://www.flaticon.com/authors/joalfa
+    imgEmotion.src='https://i.imgur.com/w7ckg2v.png';
+  }
+
+  item.appendChild(imgEmotion);
+
+  // check for genre + display as image
+  let imgGenre = document.createElement('img');
+  imgGenre.setAttribute('id','imgGenre');
+  if (Object.values(movie).includes("action")){
+    // img cred. https://www.flaticon.com/authors/freepik
+    imgGenre.src='https://i.imgur.com/KvWgmWD.png';
+  } else if (Object.values(movie).includes("comedy")){
+    // img cred. https://www.flaticon.com/authors/freepik
+    imgGenre.src='https://i.imgur.com/iD7c0oh.png';
+  } else if (Object.values(movie).includes("drama")){
+    // img cred. 
+    imgGenre.src='https://i.imgur.com/rVoazbt.png';
+  } else if (Object.values(movie).includes("fantasy")){
+    // img cred. https://www.flaticon.com/authors/those-icons
+    imgGenre.src='https://i.imgur.com/oL0BxtZ.png';
+  } else if (Object.values(movie).includes("horror")){
+    // img cred. https://www.flaticon.com/authors/joalfa
+    imgGenre.src='https://i.imgur.com/w7ckg2v.png';
+  } else if (Object.values(movie).includes("romance")){
+    // img cred. https://www.flaticon.com/authors/joalfa
+    imgGenre.src='https://i.imgur.com/w7ckg2v.png';
+  }
+
+  item.appendChild(imgGenre);
 
   movielist.appendChild(item);
 
@@ -49,11 +96,9 @@ function showMovies(movie) {
 
   // Setup delete button DOM elements
   let delButton = document.createElement('img');
-  delButton.setAttribute('id','delBtn')
+  delButton.setAttribute('id','delBtn');
+  // img cred. https://www.flaticon.com/authors/freepik
   delButton.src = 'https://i.imgur.com/kkd7kac.png';
-  /*let delButton = document.createElement("button");
-  let delButtonText = document.createTextNode("Delete");*/
-  //delButton.appendChild(delButtonText);
   item.appendChild(delButton); // Adds a delete button to every movie
 
   // Listen for when the delete button is clicked
@@ -77,9 +122,6 @@ function showMovies(movie) {
 
 }
 
-// Create a function called 'addMovie'
-// Paste your object definition from above in the function
-// Replace the property values with the input paramaters
 // Add the object to the movieList array
 
 function addMovie(title, duration, genre, status, emotion, notes) {
@@ -104,7 +146,7 @@ function addMovie(title, duration, genre, status, emotion, notes) {
 // Call the function with test values for the input paramaters
 //////// REMOVE AT THE END.
 addMovie("a silent voice", "2:25", "romance", "y", "sadness", "made me cry 10/10 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-addMovie("evangelion", "2:25", "scifi", "n", "sadness", "made me cry 10/10");
+addMovie("evangelion", "2:25", "scifi", "n", "joy", "made me cry 10/10");
 
 
 // Log the array to the console.
