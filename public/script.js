@@ -117,7 +117,7 @@ function showMovies(movie) {
   // item list popup: https://stackoverflow.com/questions/61169448/click-on-the-list-item-it-toggles-the-line-through-sytle-class-on-and-off
   item.addEventListener("click", function () {
     notepopup.showModal();
-    document.getElementById("notepopup").innerHTML = `<div id="noscroll"><em><h3>NOTE</h3><p ="date">added on ${movie.date}</p><p id="duration">length ${movie.duration}</p></em></div><br><p id="notes">${movie.notes}</p>`;
+    document.getElementById("notepopup").innerHTML = `<div id="noscroll"><em><h3>NOTE</h3><p ="date">added on ${movie.date}</p><p id="duration">length ${movie.duration}</p></em></div><br><p id="notes">${movie.notes}</p><br><p id="esc">press esc to close</p>`;
   })
 
 }

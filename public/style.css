@@ -112,6 +112,10 @@ h3 {
   overflow: auto;
 }
 
+#esc {
+  text-align: center;
+}
+
 #openForm {
   position: absolute;
   height: 50;
