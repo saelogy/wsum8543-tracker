@@ -1,4 +1,4 @@
-# wsum8543-tracker
+# wsum8543-tracker wip readme
 ## Config & deployment
 The application contains three major files and :
 * index.html
