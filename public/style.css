@@ -48,12 +48,17 @@ p {
   display: none;
 }
 
+#popup {
+  z-index: 1;
+  width: 350;
+}
+
 #notepopup {
   position: fixed;
   z-index: 1;
   width: 500;
-  height: 350;
-  overflow: auto;
+  height: 300;
+  overflow-y: hidden;
 }
 
 #imgHero {
@@ -155,6 +160,7 @@ h3 {
 @media screen and (max-width: 600px) {
   html {
     overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   dialog {
@@ -192,6 +198,9 @@ h3 {
   .dot {
     margin-left: 30;
     margin-top: 20;
+    z-index: 1;
+    float: left;
+    position: relative;
   }
   
   #title {
@@ -215,16 +224,30 @@ h3 {
   #delBtn {
     margin: -100 0 0 430;
     width: 40;
+    z-index: 1;
+    float: left;
+    position: relative;
   }
   
   #imgEmotion {
+    position: relative;
     width: 40;
+    z-index: 1;
+    float: left;
     margin: -100 0 0 360;
   }
   
   #imgGenre {
+    position: relative;
     width: 40;
+    z-index: 1;
+    float: left;
     margin: -100 0 0 290;
+  }
+
+  #movielist {
+    overflow-y: auto;
+    height: 500;
   }
   
   /* scrollbar */
