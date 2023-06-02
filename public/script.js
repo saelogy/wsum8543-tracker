@@ -30,7 +30,6 @@ form.addEventListener("submit", function (event) {
     form.elements.mNotes.value,
   )
   console.log(movieList);
-  popup.close();
 });
 
 function showMovie() {
@@ -93,6 +92,12 @@ function showMovie() {
       // Clear the value of the input once the movie has been added to the page
       form.reset();
 
+      // item list popup: https://stackoverflow.com/questions/61169448/click-on-the-list-item-it-toggles-the-line-through-sytle-class-on-and-off
+      item.addEventListener("click", function () {
+        notepopup.showModal();
+        document.getElementById("notepopup").innerHTML = `<div id="noscroll"><em><h3>NOTE</h3><p ="date">added on ${movie.date}</p><p id="duration">length ${movie.duration}</p></em></div><br><p id="notes">${movie.notes}</p><br><p id="esc">press esc to close</p>`;
+      })
+
       // Setup delete button DOM elements
       let delButton = document.createElement('img');
       delButton.setAttribute('id', 'delBtn');
@@ -132,7 +137,7 @@ function addMovie(title, duration, genre, status, emotion, notes) {
     duration,
     id: Date.now(),
     // date format location code: https://stackoverflow.com/questions/27939773/tolocaledatestring-short-format
-    date: new Date().toLocaleDateString('tr-TR', { day: "numeric", year: "numeric", month: "short" }),
+    date: new Date().toLocaleDateString('tr-TR', { day: "numeric", year: "numeric", month: "numeric" }),
     genre,
     status,
     emotion,
