@@ -1,6 +1,5 @@
-// Create an array called 'taskList'
+// Create an array called 'movieList'
 var movieList = [];
-
 
 // form show + hide
 const popup = document.getElementById("popup");
@@ -146,20 +145,20 @@ function addMovie(title, duration, genre, status, emotion, notes) {
     notes
   };
 
-  // Fetch and parse tasks array from localStorage
+  // Fetch and parse movies array from localStorage
   let localMovies = JSON.parse(localStorage.getItem("movies"));
 
-  // If no tasks exist in local storage, create a new array using the current task
+  // If no movies exist in local storage, create a new array using the current movie
   if (localMovies == null) {
     localMovies = [movie];
   } else {
-    // Otherwise check to see if a task with the same ID already exists (just in case)
+    // Otherwise check to see if a movie with the same ID already exists (just in case)
     if (localMovies.find((element) => element.title === movie.title)) {
       console.log("movie already exists");
       dupepopup.showModal();
       dupepopup.innerHTML="movie already exists";
     } else {
-      // If not, push the new task to the array
+      // If not, push the new movie to the array
       localMovies.push(movie);
     }
   }
@@ -167,9 +166,7 @@ function addMovie(title, duration, genre, status, emotion, notes) {
   // Update localStorage with the array (converted to a JSON string)
   localStorage.setItem("movies", JSON.stringify(localMovies));
 
-  // Call function to display the tasks on the DOM
+  // Call function to display the movies on the DOM
   showMovie();
 
 }
-
-//console.log(movieList);

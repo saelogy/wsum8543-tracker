@@ -37,7 +37,7 @@ Basically a complete restart of the entire javascript code to try and better und
 
 ## Further Iterations
 In the future the application could possibly be improved in three ways:
-* **Allowing users to upload poster images.** This would make identifying movies easier as the list grows longer and it also gives the user a degree of personalisation.
+* **Allowing users to upload poster images. (and by extension, header image)** This would make identifying movies easier as the list grows longer and it also gives the user a degree of personalisation.
 * **Tracking a series of emotions.** Most movies aim to have the audience feel more than one emotion, being able to track a series of emotions throughout the film could provide an interesting metric for the users to see how their thoughts on a movie changed as it went on.
 * **Tracking location where movie was consumed.** This might not be a metric which stands out as being important. However, the environment one is in when watching movies affect their perception and enjoyment of the film. Letting users log simple things like "location: cinemas" may help categorising why they had felt a certain emotion during the movie's runtime. 
 
