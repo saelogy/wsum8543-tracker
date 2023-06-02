@@ -1,17 +1,17 @@
 # wsum8543-tracker wip readme
 ## Config & deployment
-The application contains three major files and :
+The application contains three files and a folder of essential images:
 * index.html
 * script.js
 * style.css
-
-T
 
 The web application is built for screens with a standard PC width of 1920px and the mobile width of 600px. The height is set to designed to best run at the max PC height of 1080px. 
 As the web application uses Node, users will first have to run a command to install the dependencies with in their terminal with
 `npm install`
 Afterwards, to run the application, users will have to use 
 `npm run dev`
+
+***
 
 ## Development log
 ### May 12 2023
@@ -25,14 +25,28 @@ All "basic" functionalities suck as clickable/expandable items and functioning f
 Decided to move away from localStorage in order to start working on the visual design on the application. Since css files tend to be long, I tried to keep the structure organised by listing the elements from class to ids and from visually larger elements to smaller ones. However, this would end up being useless since some elements conflict each other's hierarchy. 
 I also changed some design elements of the app as I was unable to get them to behave the way I wanted them to; namely, the delete button. Initially, I had wanted the delete button to be situated inside the expanded item note box, however it would decrease its user friendliness as it would make deleting an item two clicks instead of one. 
 ### May 30 2023
-
+Made the "mobile" version of the application.  
 ### May 31 2023
+Updates to readme file.
+### June 1 2023
+Seemingly got localStorage to work but it broke almost every other functionality of the app. Testing reveals it still does not work. Objects are cycled within the list and/or localStorage is not able to display on list. 
+### June 2 2023
+Basically a complete restart of the entire javascript code to try and better understand all the elements and functions that were used. With this, I finally managed to get localStorage to work but is still unable to delete items in localStorage. On load, the site would also not show stored items until after at least one new element is added.
 
-
-To document the development process, you will need to create a log of your work, highlighting any iterations and improvements on the designs. 
+***
 
 ## Further Iterations
+In the future the application could possibly be improved in three ways:
+* **Allowing users to upload poster images.** This would make identifying movies easier as the list grows longer and it also gives the user a degree of personalisation.
+* **Tracking a series of emotions.** Most movies aim to have the audience feel more than one emotion, being able to track a series of emotions throughout the film could provide an interesting metric for the users to see how their thoughts on a movie changed as it went on.
+
+
+***
 
 ## References
-
-![image](readmeimgs/img1.png)
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
+* https://www.flaticon.com/authors/freepik
+* https://www.flaticon.com/authors/those-icons
+* https://www.flaticon.com/authors/joalfa
+* https://stackoverflow.com/questions/61169448/click-on-the-list-item-it-toggles-the-line-through-sytle-class-on-and-off
+* https://stackoverflow.com/questions/27939773/tolocaledatestring-short-format

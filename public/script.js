@@ -1,12 +1,6 @@
-// Create an array called 'movieList'
-const movieList = [];
+// Create an array called 'taskList'
+var movieList = [];
 
-function onLoad() {
-  localStorage.getItem('movies');
-  //localStorage.clear();
-}
-
-//console.log(localStorage.getItem('movies'))
 
 // form show + hide
 const popup = document.getElementById("popup");
@@ -25,6 +19,8 @@ const movielist = document.getElementById("movielist");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
+  console.log(form.elements.mTitle.value);
+
   addMovie(
     form.elements.mTitle.value,
     form.elements.mDuration.value,
@@ -33,33 +29,24 @@ form.addEventListener("submit", function (event) {
     form.elements.mEmotion.value,
     form.elements.mNotes.value,
   )
+  console.log(movieList);
+  popup.close();
+});
 
-  //console.log(movieList);
-  localStorage.setItem('movies', JSON.stringify(movieList));
-
-})
-
-function showMovies() {
-
-  let movies = JSON.parse(localStorage.getItem('movies'));
-
-  console.log(movies);
-
-  if (movies !== null) {
-    console.log(movies)
-    movies.forEach(function(movie) {
-
+function showMovie() {
+  movielist.innerHTML = "";
+  let localMovies = JSON.parse(localStorage.getItem("movies"));
+  if (localMovies !== null) {
+    localMovies.forEach(function (movie) {
       let item = document.createElement("li");
       item.setAttribute("data-id", movie.id);
-
-      // object values: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
       if (Object.values(movie).includes("y")) {
         item.innerHTML = `<div class="item"><span class="dot" id="y"></span><p id="title"><strong>${movie.title}</strong></p><br></div>`;
       } else {
         item.innerHTML = `<div class="item"><span class="dot" id="n"></span><p id="title"><strong>${movie.title}</strong></p><br></div>`;
       }
 
-      // check for emotional rating +display as image
+      // check for emotional rating + display as image
       let imgEmotion = document.createElement('img');
       imgEmotion.setAttribute('id', 'imgEmotion');
       if (Object.values(movie).includes("joy")) {
@@ -69,7 +56,7 @@ function showMovies() {
         // img cred. https://www.flaticon.com/authors/freepik
         imgEmotion.src = 'https://i.imgur.com/iD7c0oh.png';
       } else if (Object.values(movie).includes("fear")) {
-        // img cred. 
+        // img cred. https://www.flaticon.com/authors/freepik
         imgEmotion.src = 'https://i.imgur.com/rVoazbt.png';
       } else if (Object.values(movie).includes("disgust")) {
         // img cred. https://www.flaticon.com/authors/those-icons
@@ -115,28 +102,42 @@ function showMovies() {
 
       // Listen for when the delete button is clicked
       delButton.addEventListener("click", function () {
-
-        movieList.forEach(function (movieArrayElement, movieArrayIndex) {
-          if (movieArrayElement.id == item.getAttribute('data-id')) {
-            movieList.splice(movieArrayIndex, 1)
+        movieList.forEach(function () {
+          if (localMovies.find((element) => element.id === movie.id)) {
+            console.log("movie already exists");
+          } else {
+            // If not, push the new task to the array
+            localMovies.splice(movieList, 1);
           }
-        })
+        });
 
-        item.remove(); // Remove the movie item from the page when button clicked
 
-      })
+        /*movieList.forEach(function (movieArrayElement, movieArrayIndex) {
+          if (movieArrayElement.id == item.getAttribute('data-id')) {
+            movieList.splice(movieArrayIndex, 1);
+            console.log('removed')
+          }
+        });*/
 
-      // item list popup: https://stackoverflow.com/questions/61169448/click-on-the-list-item-it-toggles-the-line-through-sytle-class-on-and-off
-      item.addEventListener("click", function () {
-        notepopup.showModal();
-        document.getElementById("notepopup").innerHTML = `<div id="noscroll"><em><h3>NOTE</h3><p ="date">added on ${movie.date}</p><p id="duration">length ${movie.duration}</p></em></div><br><p id="notes">${movie.notes}</p><br><p id="esc">press esc to close</p>`;
-      })
-    })
+
+        console.log(item.getAttribute('data-id'))
+        console.log(localMovies.find((element) => element.id === movie.id))
+        //console.log(movieArrayElement.id)
+        localStorage.setItem("movies", JSON.stringify(localMovies));
+
+        item.remove();
+      });
+    });
   }
 }
 
-// Add the object to the movieList array
+function onLoad() {
+  localStorage.getItem('movies');
+  showMovie();
+  //localStorage.clear();
+}
 
+// Add the object to the movieList array
 function addMovie(title, duration, genre, status, emotion, notes) {
   // Creating the object, directly passing in the input parameters
   let movie = {
@@ -149,14 +150,30 @@ function addMovie(title, duration, genre, status, emotion, notes) {
     status,
     emotion,
     notes
+  };
+
+  // Fetch and parse tasks array from localStorage
+  let localMovies = JSON.parse(localStorage.getItem("movies"));
+
+  // If no tasks exist in local storage, create a new array using the current task
+  if (localMovies == null) {
+    localMovies = [movie];
+  } else {
+    // Otherwise check to see if a task with the same ID already exists (just in case)
+    if (localMovies.find((element) => element.id === movie.id)) {
+      console.log("movie already exists");
+    } else {
+      // If not, push the new task to the array
+      localMovies.push(movie);
+    }
   }
 
-  movieList.push(movie);
-  showMovies();
+  // Update localStorage with the array (converted to a JSON string)
+  localStorage.setItem("movies", JSON.stringify(localMovies));
+
+  // Call function to display the tasks on the DOM
+  showMovie();
 
 }
-
-// Call the function with test values for the input paramaters
-
 
 //console.log(movieList);

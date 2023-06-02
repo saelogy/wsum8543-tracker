@@ -102,6 +102,10 @@ p {
   height: 80;
 }
 
+.formRow {
+  padding: 10;
+}
+
 h3 {
   margin: 0 0 -20 0;
 }
