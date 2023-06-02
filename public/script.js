@@ -6,6 +6,7 @@ var movieList = [];
 const popup = document.getElementById("popup");
 const showButton = document.getElementById("openForm");
 const notepopup = document.getElementById('notepopup');
+const dupepopup = document.getElementById('dupepopup');
 
 // Attach event listeners
 showButton.addEventListener("click", function () {
@@ -19,8 +20,6 @@ const movielist = document.getElementById("movielist");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  console.log(form.elements.mTitle.value);
-
   addMovie(
     form.elements.mTitle.value,
     form.elements.mDuration.value,
@@ -29,7 +28,7 @@ form.addEventListener("submit", function (event) {
     form.elements.mEmotion.value,
     form.elements.mNotes.value,
   )
-  console.log(movieList);
+  popup.close();
 });
 
 function showMovie() {
@@ -94,8 +93,9 @@ function showMovie() {
 
       // item list popup: https://stackoverflow.com/questions/61169448/click-on-the-list-item-it-toggles-the-line-through-sytle-class-on-and-off
       item.addEventListener("click", function () {
+        notepopup.classList.remove("hidden");
         notepopup.showModal();
-        document.getElementById("notepopup").innerHTML = `<div id="noscroll"><em><h3>NOTE</h3><p ="date">added on ${movie.date}</p><p id="duration">length ${movie.duration}</p></em></div><br><p id="notes">${movie.notes}</p><br><p id="esc">press esc to close</p>`;
+        document.getElementById("notepopup").innerHTML = `<div id="noscroll"><em><h3>NOTE</h3><p ="date">added on ${movie.date}</p><p id="duration">length ${movie.duration} mins.</p></em></div><br><p id="notes">${movie.notes}</p><br><p id="esc">press esc to close</p>`;
       })
 
       // Setup delete button DOM elements
@@ -117,6 +117,8 @@ function showMovie() {
 
         localStorage.setItem("movies", JSON.stringify(localMovies));
 
+        notepopup.classList.add("hidden");
+
         item.remove();
       });
     });
@@ -137,7 +139,7 @@ function addMovie(title, duration, genre, status, emotion, notes) {
     duration,
     id: Date.now(),
     // date format location code: https://stackoverflow.com/questions/27939773/tolocaledatestring-short-format
-    date: new Date().toLocaleDateString('tr-TR', { day: "numeric", year: "numeric", month: "numeric" }),
+    date: new Date().toLocaleDateString("en-US",{ day: "numeric", year: "numeric", month: "short" }),
     genre,
     status,
     emotion,
@@ -152,8 +154,10 @@ function addMovie(title, duration, genre, status, emotion, notes) {
     localMovies = [movie];
   } else {
     // Otherwise check to see if a task with the same ID already exists (just in case)
-    if (localMovies.find((element) => element.id === movie.id)) {
+    if (localMovies.find((element) => element.title === movie.title)) {
       console.log("movie already exists");
+      dupepopup.showModal();
+      dupepopup.innerHTML="movie already exists";
     } else {
       // If not, push the new task to the array
       localMovies.push(movie);

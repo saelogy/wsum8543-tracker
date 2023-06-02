@@ -25,13 +25,13 @@ All "basic" functionalities suck as clickable/expandable items and functioning f
 Decided to move away from localStorage in order to start working on the visual design on the application. Since css files tend to be long, I tried to keep the structure organised by listing the elements from class to ids and from visually larger elements to smaller ones. However, this would end up being useless since some elements conflict each other's hierarchy. 
 I also changed some design elements of the app as I was unable to get them to behave the way I wanted them to; namely, the delete button. Initially, I had wanted the delete button to be situated inside the expanded item note box, however it would decrease its user friendliness as it would make deleting an item two clicks instead of one. 
 ### May 30 2023
-Made the "mobile" version of the application.  
+Made the "mobile" version (600px width) of the application.  
 ### May 31 2023
 Updates to readme file.
 ### June 1 2023
-Seemingly got localStorage to work but it broke almost every other functionality of the app. Testing reveals it still does not work. Objects are cycled within the list and/or localStorage is not able to display on list. 
+Seemingly got localStorage to work but it broke almost every other functionality of the app. Testing reveals it still does not work. Objects are repeated within the list and/or localStorage is not able to display on list. 
 ### June 2 2023
-Basically a complete restart of the entire javascript code to try and better understand all the elements and functions that were used. With this, I finally managed to get localStorage to work but is still unable to delete items in localStorage. On load, the site would also not show stored items until after at least one new element is added.
+Basically a complete restart of the entire javascript code to try and better understand all the elements and functions that were used. With this, I finally managed to get localStorage to work but is still unable to delete items in localStorage. On load, the site would also not show stored items until after at least one new element is added. Was able to get everything to work as intended after moving functions around and renaming variables. Having had another person look over my code was very helpful to spot the errors I had not noticed. Also added functionalities which make the user experience more streamlined. Eg. if movie name has previously been added to tracker already, a notice will pop up and not allow user to add the same item twice.
 
 ***
 
@@ -39,7 +39,7 @@ Basically a complete restart of the entire javascript code to try and better und
 In the future the application could possibly be improved in three ways:
 * **Allowing users to upload poster images.** This would make identifying movies easier as the list grows longer and it also gives the user a degree of personalisation.
 * **Tracking a series of emotions.** Most movies aim to have the audience feel more than one emotion, being able to track a series of emotions throughout the film could provide an interesting metric for the users to see how their thoughts on a movie changed as it went on.
-
+* **Tracking location where movie was consumed.** This might not be a metric which stands out as being important. However, the environment one is in when watching movies affect their perception and enjoyment of the film. Letting users log simple things like "location: cinemas" may help categorising why they had felt a certain emotion during the movie's runtime. 
 
 ***
 

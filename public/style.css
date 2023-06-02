@@ -13,6 +13,11 @@ dialog {
   border-radius: 5%;
   border-style: none;
   padding: 50;
+  box-shadow: 0 0 10px #858585;
+}
+
+.hidden {
+  display: none;
 }
 
 li {
@@ -21,9 +26,8 @@ li {
 
 input,
 textarea {
-  border: none;
   outline: none;
-  border-bottom: 1 solid #ccc;
+  border: none;
 }
 
 h1 {
@@ -40,17 +44,60 @@ header {
   margin: 50 213 0 240;
 }
 
+.headings {
+  padding: 5px;
+  font-weight: bold;
+}
+
 p {
   text-transform: lowercase;
 }
 
-.hidden {
-  display: none;
+textarea {
+  width: 330px;
+  height: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#mDuration{
+  width: 50px;
+}
+
+#mTitle {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  width: 300px;
+}
+
+#yWatched, #nWatched {
+  font-weight: 100;
+}
+
+#tNotes {
+  float: left;
+  padding-right: 30px;
+  margin-top: -10px; 
+}
+
+::placeholder { 
+  color: black;
 }
 
 #popup {
   z-index: 1;
-  width: 350;
+  width: 500;
+}
+
+#hideElement {
+  width: 80;
+  margin: 20 0 0 180;
+  font-size: 20;
+  text-transform: lowercase;
+  font-weight: bold;
+  background-color: white;
+  border: none;
+  cursor: pointer;
 }
 
 #notepopup {
@@ -58,6 +105,15 @@ p {
   z-index: 1;
   width: 500;
   height: 300;
+  overflow-y: hidden;
+}
+
+#dupepopup {
+  text-align: center;
+  position: fixed;
+  z-index: 2;
+  width: 300;
+  height: 30;
   overflow-y: hidden;
 }
 
@@ -104,6 +160,7 @@ p {
 
 .formRow {
   padding: 10;
+  margin-left:20px;
 }
 
 h3 {
@@ -191,7 +248,11 @@ h3 {
   
   #notepopup {
     width: 350;
-    height: 350;
+    height: 310;
+  }
+
+  #esc {
+    color: grey;
   }
   
   #imgHero {
@@ -214,6 +275,11 @@ h3 {
   .item {
     margin: 0 0 30 -35;
   }
+
+  .formRow {
+    padding: 10;
+    margin-left:0;
+  }
   
   h3 {
     margin: 0 0 -20 0;
@@ -223,6 +289,14 @@ h3 {
     position: absolute;
     height: 50;
     margin: 750 0 0 -290;
+  }
+
+  #popup {
+    width: 350;
+  }
+
+  #hideElement {
+    margin: 20 0 0 130;
   }
   
   #delBtn {

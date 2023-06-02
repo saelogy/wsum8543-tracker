@@ -27,13 +27,13 @@
 
             <!-- duration -->
             <div class="formRow">
-                <label for="mDuration">duration</label>
-                <input name="mDuration" id="mDuration">
+                <label for="mDuration" class="headings">duration (mins.):</label>
+                <input type="number" name="mDuration" id="mDuration" placeholder="eg. 82">
             </div>
 
             <!-- genre selection -->
             <div class="formRow">
-                <label for="mGenre">genre</label>
+                <label for="mGenre" class="headings">genre:</label>
                 <select name="mGenre" id="mGenre" required>
                     <option value="">select</option>
                     <option value="action">action</option>
@@ -47,7 +47,7 @@
 
             <!-- complete ? yes/no radio select -->
             <div class="formRow">
-                <label for="mWatched">watched?</label>
+                <label for="mWatched" class="headings">watched?</label>
                 <input type="radio" id="yWatched" value="y" name="complete">
                 <label for="yWatched">yes</label>
                 <input type="radio" id="nWatched" value="n" name="complete">
@@ -56,7 +56,7 @@
 
             <!-- emotion -->
             <div class="formRow">
-                <label for="mEmotion">emotion</label>
+                <label for="mEmotion" class="headings">emotion:</label>
                 <select name="mEmotion" id="mEmotion">
                     <option value="">select</option>
                     <option value="joy">joy</option>
@@ -69,8 +69,8 @@
 
             <!-- user note -->
             <div class="formRow">
-                <label for="mNotes">notes</label>
-                <textarea name="mNotes" id="mNotes"></textarea>
+                <label for="mNotes" id="tNotes" class="headings">notes:</label>
+                <textarea name="mNotes" id="mNotes" placeholder="write down anything here. your thoughts, your reviews, anything . . ."></textarea>
             </div>
 
             <!-- submit button -->
@@ -81,6 +81,7 @@
     </dialog>
 
     <dialog id="notepopup"></dialog>
+    <dialog id="dupepopup"></dialog>
 
     <ul id="movielist"></ul>
     <script src="script.js"></script>
