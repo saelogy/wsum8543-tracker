@@ -102,27 +102,14 @@ function showMovie() {
 
       // Listen for when the delete button is clicked
       delButton.addEventListener("click", function () {
-        movieList.forEach(function () {
-          if (localMovies.find((element) => element.id === movie.id)) {
-            console.log("movie already exists");
-          } else {
-            // If not, push the new task to the array
-            localMovies.splice(movieList, 1);
+
+        localMovies.forEach(function (movieArrayElement, movieArrayIndex) {
+          if (movieArrayElement.id == item.getAttribute('data-id')) {
+            localMovies.splice(movieArrayIndex, 1);
+            console.log('removed')
           }
         });
 
-
-        /*movieList.forEach(function (movieArrayElement, movieArrayIndex) {
-          if (movieArrayElement.id == item.getAttribute('data-id')) {
-            movieList.splice(movieArrayIndex, 1);
-            console.log('removed')
-          }
-        });*/
-
-
-        console.log(item.getAttribute('data-id'))
-        console.log(localMovies.find((element) => element.id === movie.id))
-        //console.log(movieArrayElement.id)
         localStorage.setItem("movies", JSON.stringify(localMovies));
 
         item.remove();
